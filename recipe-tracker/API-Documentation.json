@@ -1,0 +1,332 @@
+{
+  "info": {
+    "name": "Recipe Tracker API",
+    "description": "REST API for tracking recipes with ingredients, amounts, and directions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Recipes",
+      "item": [
+    {
+      "name": "List All Recipes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes",
+          "host": ["{{base_url}}"],
+          "path": ["recipes"]
+        }
+      }
+    },
+    {
+      "name": "Get Recipe by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/1",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1"]
+        }
+      }
+    },
+    {
+      "name": "Create Recipe",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Spaghetti Carbonara\",\n  \"description\": \"Classic Italian pasta dish with pancetta and eggs\",\n  \"servings\": 4,\n  \"prep_time_minutes\": 30,\n  \"is_holiday_recipe\": false,\n  \"ingredients\": [\n    {\n      \"name\": \"Spaghetti\",\n      \"amount\": \"400g\"\n    },\n    {\n      \"name\": \"Pancetta\",\n      \"amount\": \"200g\"\n    },\n    {\n      \"name\": \"Eggs\",\n      \"amount\": \"4 large\"\n    },\n    {\n      \"name\": \"Parmesan cheese\",\n      \"amount\": \"100g grated\"\n    }\n  ],\n  \"directions\": [\n    {\n      \"step_text\": \"Boil water and cook spaghetti according to package directions\",\n      \"step_number\": 1\n    },\n    {\n      \"step_text\": \"Fry pancetta until crispy in a large pan\",\n      \"step_number\": 2\n    },\n    {\n      \"step_text\": \"Beat eggs in a bowl with grated parmesan\",\n      \"step_number\": 3\n    },\n    {\n      \"step_text\": \"Drain pasta, reserving 1 cup pasta water\",\n      \"step_number\": 4\n    },\n    {\n      \"step_text\": \"Combine hot pasta with pancetta, remove from heat\",\n      \"step_number\": 5\n    },\n    {\n      \"step_text\": \"Stir in egg mixture, adding pasta water as needed for sauce\",\n      \"step_number\": 6\n    },\n    {\n      \"step_text\": \"Serve immediately with extra parmesan\",\n      \"step_number\": 7\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/recipes",
+          "host": ["{{base_url}}"],
+          "path": ["recipes"]
+        }
+      }
+    },
+    {
+      "name": "Update Recipe",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Spaghetti Carbonara (Updated)\",\n  \"description\": \"Classic Italian pasta dish\",\n  \"servings\": 6,\n  \"prep_time_minutes\": 25,\n  \"ingredients\": [\n    {\n      \"name\": \"Spaghetti\",\n      \"amount\": \"600g\"\n    },\n    {\n      \"name\": \"Pancetta\",\n      \"amount\": \"300g\"\n    },\n    {\n      \"name\": \"Eggs\",\n      \"amount\": \"6 large\"\n    },\n    {\n      \"name\": \"Parmesan cheese\",\n      \"amount\": \"150g grated\"\n    }\n  ],\n  \"directions\": [\n    {\n      \"step_text\": \"Boil water and cook spaghetti according to package directions\",\n      \"step_number\": 1\n    },\n    {\n      \"step_text\": \"Fry pancetta until crispy\",\n      \"step_number\": 2\n    },\n    {\n      \"step_text\": \"Beat eggs with grated parmesan\",\n      \"step_number\": 3\n    },\n    {\n      \"step_text\": \"Combine hot pasta with pancetta, then stir in egg mixture\",\n      \"step_number\": 4\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/recipes/1",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Recipe",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/1",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1"]
+        }
+      }
+    }
+      ]
+    },
+    {
+      "name": "Ingredients",
+      "item": [
+    {
+      "name": "List Ingredients",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/1/ingredients",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1", "ingredients"]
+        }
+      }
+    },
+    {
+      "name": "Add Ingredient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Black pepper\",\n  \"amount\": \"1 tsp\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/recipes/1/ingredients",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1", "ingredients"]
+        }
+      }
+    },
+    {
+      "name": "Delete Ingredient",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/ingredients/1",
+          "host": ["{{base_url}}"],
+          "path": ["ingredients", "1"]
+        }
+      }
+    }
+      ]
+    },
+    {
+      "name": "Directions",
+      "item": [
+    {
+      "name": "List Directions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/1/directions",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1", "directions"]
+        }
+      }
+    },
+    {
+      "name": "Add Direction",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"step_text\": \"Garnish with fresh parsley\",\n  \"step_number\": 8\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/recipes/1/directions",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1", "directions"]
+        }
+      }
+    },
+    {
+      "name": "Delete Direction",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/directions/1",
+          "host": ["{{base_url}}"],
+          "path": ["directions", "1"]
+        }
+      }
+    }
+      ]
+    },
+    {
+      "name": "Import",
+      "item": [
+    {
+      "name": "Import Recipe from URL",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/recipes/import",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "import"]
+        }
+      }
+    },
+    {
+      "name": "Import Recipe from JSON",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"json_data\": {\n    \"title\": \"Quick Chicken Stir Fry\",\n    \"description\": \"Fast weeknight dinner\",\n    \"servings\": 2,\n    \"prep_time_minutes\": 20,\n    \"is_holiday_recipe\": false,\n    \"ingredients\": [\n      {\"name\": \"Chicken breast\", \"amount\": \"2 pieces\"},\n      {\"name\": \"Mixed vegetables\", \"amount\": \"2 cups\"},\n      {\"name\": \"Soy sauce\", \"amount\": \"3 tbsp\"},\n      {\"name\": \"Garlic, minced\", \"amount\": \"2 cloves\"}\n    ],\n    \"directions\": [\n      {\"step_text\": \"Slice chicken into strips\", \"step_number\": 1},\n      {\"step_text\": \"Stir fry chicken until cooked through\", \"step_number\": 2},\n      {\"step_text\": \"Add vegetables and garlic\", \"step_number\": 3},\n      {\"step_text\": \"Add soy sauce and serve over rice\", \"step_number\": 4}\n    ]\n  }\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/recipes/import",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "import"]
+        }
+      }
+    }
+      ]
+    },
+    {
+      "name": "Recipe Usage Tracking",
+      "item": [
+    {
+      "name": "Mark Recipe as Used",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/1/used",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1", "used"]
+        }
+      }
+    },
+    {
+      "name": "Set Holiday Recipe Flag",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"is_holiday_recipe\": true\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/recipes/1",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get Holiday Recipes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/holiday",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "holiday"]
+        }
+      }
+    },
+    {
+      "name": "Get Most Used Recipes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/most-used",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "most-used"]
+        }
+      }
+    },
+    {
+      "name": "Get Last Used Recipes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/recipes/last-used",
+          "host": ["{{base_url}}"],
+          "path": ["recipes", "last-used"]
+        }
+      }
+    }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}
